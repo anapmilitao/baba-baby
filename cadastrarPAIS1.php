@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Pais</title>
-    <link rel="stylesheet" href="css\cadastrarPAIS1.css">
+    <link rel="stylesheet" href="cadastrarPAIS1.css">
 </head>
 <body>
     
@@ -12,8 +12,8 @@
 <div class="cabecalho">
 <h1 id="titulo">Cadastrar Pai/Responsável</h1>
 <br>
-
 </div>
+
 <br>
 <script>
     function validarData() {
@@ -31,7 +31,7 @@
 
 <form method="POST" action="cadastrar_actP1.php">
 <ul>
-    
+    <div class="caixa">
     <label id="cpf">
         <strong>CPF:</strong> <input type="text" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" title="Formato: XXX.XXX.XXX-XX" required/>
     </label>
@@ -66,6 +66,7 @@
     <br>
 </ul>
     <input type="submit" value="Próximo">
+</div>
    
 </form>
 </div>
