@@ -9,7 +9,27 @@ if($sql->rowCount() > 0){;
 }
 ?>
 
-<h1>Listagem de Pais</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="selepais.css">
+    
+</head>
+<body>
+<header>
+    <a href="cadastroPG.php" class="button">
+        Cadastrar Usuário
+        <div class="hoverEffect">
+            <div>
+            </div>
+        </div>
+    </a>
+  
+    <a href="index.php" class="voltar">Voltar</a>
+    <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
+</header>
+
+    <h1>Listagem de Pais</h1>
 
 <table border="1">
     <tr>
@@ -18,7 +38,7 @@ if($sql->rowCount() > 0){;
         <th>Endereço</th>
         <th>QtdeCriança</th>
         <th>Descrição</th>
-        
+        <th>Ações</th>
 
     </tr>
     <?php foreach($lista as $pais): ?>
@@ -29,8 +49,8 @@ if($sql->rowCount() > 0){;
             <td><?=$pais['qtdeCrianca'];?></td>
             <td><?=$pais['descricao'];?></td>
             <td>
-                <a href="editarPAIS.php?idPais=<?=$pais['idPais'];?>">[ Editar ] </a>
-                <a onclick="confirmarExclusao()" href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>">[ Excluir ]</a>
+                <a href="editarPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao editar"> Editar </a>
+                <a onclick="confirmarExclusao()" href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao excluir"> Excluir </a>
                 
             </td>
             
@@ -39,10 +59,6 @@ if($sql->rowCount() > 0){;
         </tr>
     <?php endforeach; ?>
 </table>
-<li><a href="selectCRIA.php">[ Filho(s) ] </a></li>
-<a href="cadastroPG.php">Cadastrar Usuário</a><br>
-<a href="index.php"><button>Voltar</button></a>
-
 <script>
     function confirmarExclusao() {
         
