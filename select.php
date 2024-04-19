@@ -9,7 +9,27 @@ if($sql->rowCount() > 0){;
 }
 ?>
 
-<h1>Listagem de Usuários</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="selectgeral.css">
+    
+</head>
+<body>
+<header>
+    <a href="cadastroPG.php" class="button">
+        Cadastrar Usuário
+        <div class="hoverEffect">
+            <div>
+            </div>
+        </div>
+    </a>
+  
+    <a href="index.php" class="voltar">Voltar</a>
+    <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
+</header>
+
+    <h1>Listagem de Usuários</h1>
 
 <table border="1">
     <tr>
@@ -37,15 +57,14 @@ if($sql->rowCount() > 0){;
             <td><?=$usuario['cep'];?></td>
             <td><?=$usuario['email'];?></td>
             <td><?=$usuario['senha'];?></td>
-            <td>
-                <a href="editar.php?idUsuario=<?=$usuario['idUsuario'];?>">[ Editar ] </a>
-                <a href="excluir.php?idUsuario=<?=$usuario['idUsuario'];?>">[ Excluir ] </a>
+            <td class="acoes">
+                <a href="editar.php?idUsuario=<?=$usuario['idUsuario'];?>" class="botao editar"> Editar </a>
+                <a href="excluir.php?idUsuario=<?=$usuario['idUsuario'];?>"class="botao excluir"> Excluir </a>
             </td>
             
             
         </tr>
     <?php endforeach; ?>
 </table>
-
-<a href="cadastroPG.php">Cadastrar Usuário</a><br>
-<a href="index.php"><button>Voltar</button></a>
+</body>
+</html>
