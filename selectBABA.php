@@ -13,50 +13,73 @@ $queryPreparada->execute();
 $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
 $listaBaba = $queryPreparada->fetchAll();
 
-function alerta(string $mensagem) {
+function alerta(string $mensagem)
+{
     echo "<script type='text/javascript' >
                 alert('$mensagem');
           </script>";
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="selebaba.css">
+    
+</head>
+<body>
+<header>
+    <a href="cadastroPG.php" class="button">
+        Cadastrar Usuário
+        <div class="hoverEffect">
+            <div>
+            </div>
+        </div>
+    </a>
+  
+    <a href="index.php" class="voltar">Voltar</a>
+    <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
+</header>
+    
+    <h1>Listagem de Babá</h1>
 
-<h1>Listagem de Babá</h1>
-
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Baba desde</th>
-        <th>Tel Referência</th>
-        <th>Sobre</th>
-        <th>Faixa Etaria</th>
-        <th>Valor/Hora</th>
-    </tr>
-    <?php foreach($listaBaba as $baba): ?>
+    <table border="1">
         <tr>
-            <td><?=$baba['idBaba'];?></td>
-            <td><?=$baba['nomeBaba'];?></td>
-            <td><?=$baba['tempoExp'];?></td>
-            <td><?=$baba['ref'];?></td>
-            <td><?=$baba['sobre'];?></td>
-            <td><?=$baba['fxEtaria'];?></td>
-            <td><?=$baba['valorH'];?></td>
-            <td>
-                <a href="disponibilidadeBABA.php?idBaba=<?=$baba['idBaba'];?>">[ Disponibilidade ]</a>
-                <a href="editarBABA.php?idBaba=<?=$baba['idBaba'];?>">[ Editar ] </a>
-                <a href="excluirBABA.php?idBaba=<?=$baba['idBaba'];?>">[ Excluir ]</a>
-            </td>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Baba desde</th>
+            <th>Tel Referência</th>
+            <th>Sobre</th>
+            <th>Faixa Etaria</th>
+            <th>Valor/Hora</th>
+            <th>Ações</th>
         </tr>
-    <?php endforeach; ?>
-</table>
+        <?php foreach($listaBaba as $baba): ?>
+            <tr>
+                <td><?=$baba['idBaba'];?></td>
+                <td><?=$baba['nomeBaba'];?></td>
+                <td><?=$baba['tempoExp'];?></td>
+                <td><?=$baba['ref'];?></td>
+                <td><?=$baba['sobre'];?></td>
+                <td><?=$baba['fxEtaria'];?></td>
+                <td><?=$baba['valorH'];?></td>
+                            <td class="acoes">
+                                <a href="disponibilidadeBABA.php?idBaba=<?=$baba['idBaba'];?>" class="botao disponibilidade"> Disponibilidade </a>
+                                <a href="editarBABA.php?idBaba=<?=$baba['idBaba'];?>" class="botao editar"> Editar </a>
+                                <a href="excluirBABA.php?idBaba=<?=$baba['idBaba'];?>" class="botao excluir"> Excluir </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
+        if ($delete == 1) {
+            alerta("Registro da Baba exluído com sucesso!");
+        } else if ($delete === 0) {
+            alerta("Falha ao excluir registro.");
+        } else {
+        }
+        ?>
 
-<?php
-if ($delete == 1)  {
-    alerta("Registro da Baba exluído com sucesso!");
-} else if ($delete === 0) {
-    alerta("Falha ao excluir registro.");
-} else {}
-?>
-
-<a href="cadastroPG.php">Cadastrar Usuário</a><br>
-<a href="index.php"><button>Voltar</button></a>
+</body>
+</html>
