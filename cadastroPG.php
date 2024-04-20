@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Cadastro</title>
-        <link rel="stylesheet" href="css\stylePG.css">
+        <link rel="stylesheet" href="stylePG.css">
     </head>
     <body>
         <header>
