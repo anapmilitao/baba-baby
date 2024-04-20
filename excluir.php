@@ -7,7 +7,7 @@
     try{
         $sql->execute();
     }catch(PDOException $e){
-        echo $e->getMessage("Deve-se deletar a conta diretamente na Babá ou Pais primeiro.");
+        $erro = 1;
     }
-    header("Location: select.php");
+    header("Location: select.php?erro=".$erro);
 ?>
