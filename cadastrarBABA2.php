@@ -3,7 +3,7 @@ require 'configu.php';
 ?>
 <h1>Cadastrar Babá</h1>
 <p>Dados Babá</p>
-<form method="POST" action="cadastrar_actB2.php">
+<form method="POST" action="css\cadastrarBABA2.css">
     <ul>
         <label>
             <input type="hidden" name="Conta" value="BABÁ" />

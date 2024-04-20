@@ -26,7 +26,7 @@ function alerta(string $mensagem)
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="selebaba.css">
+    <link rel="stylesheet" type="text/css" href="css\selebaba.css">
     
 </head>
 <body>

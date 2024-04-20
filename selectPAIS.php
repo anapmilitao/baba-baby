@@ -12,7 +12,7 @@ if($sql->rowCount() > 0){;
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="selepais.css">
+    <link rel="stylesheet" type="text/css" href="css\selepais.css">
     
 </head>
 <body>
