@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Pais</title>
-    <link rel="stylesheet" href="cadastrarPAIS1.css">
+    <link rel="stylesheet" href="css\cadastrarPAIS1.css">
 </head>
 <body>
     
@@ -17,14 +17,12 @@
 <br>
 <script>
     function validarData() {
-        
         var dataInput = document.getElementById('data').value;
-        console.log(dataInput);
-        var aData = dataInput.split("-");
-        var ano = new Date().getFullYear();
-        console.log(ano);
-        if(aData[0] >= ano){
-            alert("Adicione a sua real data de nascimento!");
+        var dataAtual = new Date().toISOString().slice(0, 10);
+            
+        if (dataInput >= dataAtual) {
+            alert('Por favor, selecione seu ano real de nascimento.');
+            document.getElementById('data').value = '';
         }
     }
 </script>
@@ -47,7 +45,7 @@
     </label>
     <br>
     <label id="dt">
-        <strong>Data de Nascimento:</strong><input type="date" id="data" name="dtaNascimento" onfocusout="validarData()" required/>
+        <strong>Data de Nascimento:</strong><input type="date" id="data "name="dtaNascimento" oninput="validarData()" required/>
     </label>
     <br>
     <label>
@@ -67,7 +65,7 @@
     </label>
     <br>
 </ul>
-    <input type="submit" value="Próximo">
+    <input type="submit" id="button" value="Próximo">
 </div>
    
 </form>
