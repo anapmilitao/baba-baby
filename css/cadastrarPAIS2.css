@@ -5,14 +5,13 @@
   }
   
   .cabecalho{
-      font-family:  sans-serif;
-      color: black;
-      
-      padding: 20px;
-      text-overflow: 1px 1px 1px;
-      position:relative;
-      margin-left:170px;
-      margin-top:1px;
+    font-family:  sans-serif;
+    color: black;
+    padding: 20px;
+    text-overflow: 1px 1px 1px;
+    position:relative;
+    margin-left:170px;
+    margin-top:1px;
       
       
       
