@@ -31,7 +31,7 @@ if($sql->rowCount() > 0){;
 
 <?php
     if(isset($_GET["erro"]) && $_GET["erro"] == 1){
-        echo "<h1>Erro: Nao foi possivel excluir o registro por conta de FK.</h1>";
+        echo "<h1>Erro: Não foi possível excluir o registro. Delete a conta pela Babá/Pais.</h1>";
     }
     
 ?>
