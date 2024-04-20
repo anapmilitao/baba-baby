@@ -26,10 +26,12 @@ require 'configu.php';
         <label>
             <p>
                 <li>Tenho prefência em cuidar de (opção única):
-                    Bebê <input type="radio" name="fk_idFxEtaria" value="1">
-                    Criança <input type="radio" name="fk_idFxEtaria" value="2">
-                    Infantojuvenil <input type="radio" name="fk_idFxEtaria" value="3">
-                    Adolescente <input type="radio" name="fk_idFxEtaria" value="4">
+                    <select name="fk_idFxEtaria" required>
+                        <option value="1">Bebê</option>
+                        <option value="2">Criança</option>
+                        <option value="3">Infantojuvenil</option>
+                        <option value="4">Adolescente</option>
+                    </select>
             </p>
         </label>
         <label>
