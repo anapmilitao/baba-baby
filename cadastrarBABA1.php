@@ -53,7 +53,7 @@
         <strong>Senha:</strong> <input type="password" name="senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,16}$" required title="A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número, um caractere especial e ter entre 8 e 16 caracteres"/>
         </label>
     </ul>
-        <input type="submit" value="Próximo">
+        <input type="submit" id="button"  value="Próximo">
     </div>
 </div>
 
