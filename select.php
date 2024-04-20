@@ -29,6 +29,12 @@ if($sql->rowCount() > 0){;
     <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
 </header>
 
+<?php
+    if(isset($_GET["erro"]) && $_GET["erro"] == 1){
+        echo "<h1>Erro: Nao foi possivel excluir o registro por conta de FK.</h1>";
+    }
+    
+?>
     <h1>Listagem de Usuários</h1>
 
 <table border="1">
@@ -42,7 +48,6 @@ if($sql->rowCount() > 0){;
         <th>Tel</th>
         <th>CEP</th>
         <th>Email</th>
-        <th>Senha</th>
         <th>Ações</th>
 
     </tr>
@@ -56,7 +61,6 @@ if($sql->rowCount() > 0){;
             <td><?=$usuario['telefone'];?></td>
             <td><?=$usuario['cep'];?></td>
             <td><?=$usuario['email'];?></td>
-            <td><?=$usuario['senha'];?></td>
             <td class="acoes">
                 <a href="editar.php?idUsuario=<?=$usuario['idUsuario'];?>" class="botao editar"> Editar </a>
                 <a href="excluir.php?idUsuario=<?=$usuario['idUsuario'];?>"class="botao excluir"> Excluir </a>
