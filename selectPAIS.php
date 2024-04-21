@@ -1,11 +1,22 @@
 <?php
 require 'configu.php';
 
+$delete = filter_input(INPUT_GET, 'delete');
 /*select PAIS*/
-$lista = [];
-$sql = $pdo->query("SELECT idPais, endereco, qtdeCrianca, descricao, nome from pais left join usuario on usuario.idUsuario = pais.fk_idUsuario");
-if($sql->rowCount() > 0){;
-    $lista= $sql->fetchAll(PDO::FETCH_ASSOC);
+$querySQL = "SELECT idPais, endereco, qtdeCrianca, descricao, 
+nome from pais 
+left join usuario on usuario.idUsuario = pais.fk_idUsuario";
+
+$queryPreparada = $pdo->prepare($querySQL);
+$queryPreparada->execute();
+$queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
+$listaPais = $queryPreparada->fetchAll();
+
+function alerta(string $mensagem)
+{
+    echo "<script type='text/javascript' >
+                alert('$mensagem');
+          </script>";
 }
 ?>
 
@@ -31,40 +42,40 @@ if($sql->rowCount() > 0){;
 
     <h1>Listagem de Pais</h1>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Endereço</th>
-        <th>QtdeCriança</th>
-        <th>Descrição</th>
-        <th>Ações</th>
-
-    </tr>
-    <?php foreach($lista as $pais): ?>
+    <table border="1">
         <tr>
-            <td><?=$pais['idPais'];?></td>
-            <td><?=$pais['nome'];?></td>
-            <td><?=$pais['endereco'];?></td>
-            <td><?=$pais['qtdeCrianca'];?></td>
-            <td><?=$pais['descricao'];?></td>
-            <td>
-                <a href="editarPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao editar"> Editar </a>
-                <a onclick="confirmarExclusao()" href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao excluir"> Excluir </a>
-                
-            </td>
-            
-            
-            
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>QtdeCriança</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+
         </tr>
-    <?php endforeach; ?>
-</table>
-<script>
-    function confirmarExclusao() {
-        
-        if (confirm('Tem certeza que deseja excluir sua conta? Esta ação não poderá ser desfeita.')) {
-            <a href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>"></a>
-            alert('Sua conta foi excluída com sucesso.');
+        <?php foreach($listaPais as $pais): ?>
+            <tr>
+                <td><?=$pais['idPais'];?></td>
+                <td><?=$pais['nome'];?></td>
+                <td><?=$pais['endereco'];?></td>
+                <td><?=$pais['qtdeCrianca'];?></td>
+                <td><?=$pais['descricao'];?></td>
+                <td>
+                    <a href="editarPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao editar"> Editar </a>
+                    <a href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao excluir"> Excluir </a>
+                    
+                </td> 
+            </tr>
+
+        <?php endforeach; ?>
+    </table>
+    <?php
+        if ($delete == 1) {
+            alerta("Registro de Pais excluído com sucesso!");
+        } else if ($delete === 0) {
+            alerta("Falha ao excluir registro.");
+        } else {
         }
-    }
-</script>
+        ?>
+
+</body>
+</html>

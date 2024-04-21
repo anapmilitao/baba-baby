@@ -77,7 +77,7 @@ function alerta(string $mensagem)
         </div>
         <?php
         if ($delete == 1) {
-            alerta("Registro da Babá exluído com sucesso!");
+            alerta("Registro de Babá excluído com sucesso!");
         } else if ($delete === 0) {
             alerta("Falha ao excluir registro.");
         } else {

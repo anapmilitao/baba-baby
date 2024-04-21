@@ -11,13 +11,25 @@
 <div class="cabecalho">
 <h1>Cadastrar Pais</h1>
 </div>
+<?php
+// Inicializa a variável $idUsuario
+$idUsuario = "";
+
+// Verifica se a variável 'idUsuario' está definida na URL
+if(isset($_GET['idUsuario'])) {
+    // Se estiver definida, use-a como o valor da variável $idUsuario
+    $idUsuario = $_GET['idUsuario'];
+}
+?>
 
 <form method="POST" action="cadastrar_actP2.php">
     <ul>
         <div class="caixa">
     <label>
         <input type="hidden" name="Conta" value="PAIS" />
-        <input type="hidden" name="fk_idUsuario" value="<?php echo $_GET['idUsuario'];?>" />
+        <!-- O código HTML que será exibido para o usuário -->
+        <input type="hidden" name="fk_idUsuario" value="<?php echo htmlspecialchars($idUsuario); ?>" />
+
     </label>
     <label>
         <li><strong>Endereço: </strong><input type="text" name="endereco" pattern="[a-zA-Z0-9\s,'-]*" required title="Por favor, insira um endereço válido"/>
