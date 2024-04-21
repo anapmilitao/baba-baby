@@ -46,7 +46,7 @@ if ($idPais) {
                     <strong>Qtde Criança:</strong> <input type="number" name="qtdeCrianca" value="<?= $pais['qtdeCrianca']; ?>" />
                 </label>
                 <label>
-                    <strong>Descriação:</strong> <input type="text" name="descricao"
+                    <strong>Descrição:</strong> <input type="text" name="descricao"
                             title="Detalhe um pouco sobre como é sua família." required
                             value="<?= $pais['descricao']; ?>" />
                 </label>
