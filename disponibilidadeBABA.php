@@ -29,7 +29,22 @@ foreach($listaConsolidada as $dia => $turnos) {
 }
 ?>
 
-<h1>Disponibilidade da Baba</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/disponibilidadebb.css">
+    
+</head>
+<body>
+    <header>
+        <a  href="addDisponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>" class="adicionar">Adicionar disponibilidade</a>
+        <a  href="editarDisponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>" class="remover">Remover disponibilidade</a>        
+        <a href="index.php" class="voltar">Voltar</a>
+        <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
+    </header>
+    
+    <h1>Disponibilidade da Baba</h1>
+    
 <table border="1">
     <thead>
         <tr>
@@ -46,6 +61,5 @@ foreach($listaConsolidada as $dia => $turnos) {
         <?php endforeach; ?>
     </tbody>
 </table>
-<a  href="addDisponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>">[Adicionar Disponibilidade]</a>
-<a  href="editarDisponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>">[Remover disponibilidade]</a>
-<a type="button" href="selectBABA.php">[Voltar]</a>
+</body>
+</html>
