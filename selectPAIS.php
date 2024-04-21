@@ -59,7 +59,7 @@ function alerta(string $mensagem)
                 <td><?=$pais['endereco'];?></td>
                 <td><?=$pais['qtdeCrianca'];?></td>
                 <td><?=$pais['descricao'];?></td>
-                <td>
+                <td class="acoes">
                     <a href="editarPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao editar"> Editar </a>
                     <a href="excluirPAIS.php?idPais=<?=$pais['idPais'];?>" class="botao excluir"> Excluir </a>
                     
