@@ -17,25 +17,43 @@ $queryPreparada->setFetchMode(PDO::FETCH_ASSOC);
 $disponibilidadeBaba = $queryPreparada->fetchAll();
 ?>
 
-<h1>Editar Disponibilidades</h1>
-<table border="1">
-    <thead>
-        <tr>
-            <th>Dia da Semana</th>
-            <th>Turno</th>
-            <th>Operação</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($disponibilidadeBaba as $dispo): ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\removeDispo.css">
+    <title>Editar Disponibilidade</title>
+</head>
+
+<body>
+<header>
+        <a href="disponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>" class="voltar">Voltar</a>
+        <img src="imagem/bbbyy.png" width="120px" class="imagemhead" >
+    </header>
+    <h1>Remover Disponibilidades</h1>
+    <table border="1">
+        <thead>
             <tr>
-                <td><?=$dispo['dia_da_semana']; ?></td>
-                <td><?=$dispo['turno']; ?></td>
-                <td>
-                    <a href="excluirDisponibilidadeBABA.php?idDisponibilidade=<?=$dispo['idDisponibilidade'];?>&idBaba=<?=$idBaba;?>">Excluir</a>
-                </td>
+                <th>Dia da Semana</th>
+                <th>Turno</th>
+                <th>Operação</th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-<a type="button" href="disponibilidadeBABA.php?idBaba=<?php echo $idBaba; ?>">[Voltar]</a>
+        </thead>
+        <tbody>
+            <?php foreach ($disponibilidadeBaba as $dispo): ?>
+                <tr>
+                    <td><?= $dispo['dia_da_semana']; ?></td>
+                    <td><?= $dispo['turno']; ?></td>
+                    <td>
+                        <a
+                            href="excluirDisponibilidadeBABA.php?idDisponibilidade=<?= $dispo['idDisponibilidade']; ?>&idBaba=<?= $idBaba; ?>" class="botao excluir">Excluir</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+
+</html>
