@@ -11,8 +11,7 @@ $cep = filter_input(INPUT_POST, 'cep');
 $email = filter_input(INPUT_POST, 'email');
 $senha = filter_input(INPUT_POST, 'senha');
 
-//tratativa de senha
-$hash = password_hash($senha, PASSWORD_DEFAULT);
+//tratativa de senha $hash = password_hash($senha, PASSWORD_DEFAULT);
 
 $cpf = str_replace("-","",str_replace(".","",$cpf));
 $sql = $pdo->prepare("INSERT INTO usuario (cpf, nome, sobrenome, dtaNascimento, telefone, cep, email, senha) VALUES (:cpf, :nome, :sobrenome, :dtaNascimento, :telefone, :cep, :email, :senha)");
