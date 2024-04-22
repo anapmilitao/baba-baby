@@ -22,7 +22,7 @@ $sql->bindValue(':dtaNascimento', $dtanasc);
 $sql->bindValue(':telefone', $tel);
 $sql->bindValue(':cep', $cep);
 $sql->bindValue(':email', $email);
-$sql->bindValue(':senha', $hash);
+$sql->bindValue(':senha', $senha);
 
 $sql->execute();
 $idUsuario = $pdo->lastInsertId();
