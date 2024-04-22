@@ -38,7 +38,7 @@
             <strong>Sobrenome:<strong> <input type="text" name="sobrenome" pattern="[a-zA-Z\u00C0-\u00FF ]{2,45}" title="Sobrenome entre 2 e 45 letras." required/>
         </label>
         <label>
-        <strong>Data de Nascimento:</strong> <input type="date" name="dtaNascimento" oninput="validarData()" required/>
+        <strong>Data de Nascimento:</strong> <input type="date" id="data" name="dtaNascimento" oninput="validarData()" required/>
         </label>
         <label>
         <strong>Telefone:</strong> <input type="text" name="telefone" pattern="\d{2}\s?\d{4,5}-?\d{4}" title="Formato: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX." required/>
